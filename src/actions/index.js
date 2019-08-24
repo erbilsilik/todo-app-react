@@ -1,4 +1,4 @@
-import types from '../constants/';
+import types from "../constants/constants";
 
 let todoId = 0;
 
@@ -14,6 +14,12 @@ const actions = {
             type: types.SUBMIT_TODO,
             id: nextId(),
             text,
+        };
+    },
+    deleteTodo(id) {
+        return {
+            type: types.DELETE_TODO,
+            id,
         };
     },
 };

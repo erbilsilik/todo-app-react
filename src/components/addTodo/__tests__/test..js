@@ -1,7 +1,7 @@
 /* global expect, it, describe */
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import AddTodo from "../index";
+import AddTodo from "../";
 
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
