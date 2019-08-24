@@ -26,16 +26,9 @@ export const reducer = (state = initialState, action) => {
                 error: action.error
             };
 
-        case types.SUBMIT_TODO:
+        case types.SUBMIT_TODO_SUCCESS:
             return {
-                ...state,
-                todos: [
-                    ...state.todos,
-                    {
-                        id: action.id,
-                        text: action.text,
-                    },
-                ],
+                todos: [action.todo, ...state.todos]
             };
 
         case types.DELETE_TODO:

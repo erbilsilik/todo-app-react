@@ -33,11 +33,27 @@ const actions = {
                 });
         };
     },
-    submitTodo(text) {
-        return {
-            type: types.SUBMIT_TODO,
-            id: nextId(),
-            text,
+    submitTodo(title) {
+        return dispatch => {
+            dispatch({
+                type: types.SUBMIT_TODO,
+            });
+            axios
+                .post(`${apiUrl}/todos`, {
+                    title,
+                })
+                .then(res => {
+                    dispatch({
+                        type: types.SUBMIT_TODO_SUCCESS,
+                        todo: res.data
+                    });
+                })
+                .catch(err => {
+                    dispatch({
+                        type: types.SUBMIT_TODO_FAILURE,
+                        todo: err
+                    });
+                });
         };
     },
     deleteTodo(id) {
