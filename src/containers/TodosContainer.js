@@ -7,7 +7,7 @@ import TodoList from "../components/todoList";
 
 class TodosContainer extends Component {
     componentDidMount() {
-        this.props.fetchTodos();
+        console.log(this.props.fetchTodos());
         // When container was mounted, we need to start fetching todos.
     }
 

@@ -13,27 +13,25 @@ const nextId = () => {
 
 const actions = {
     fetchTodos: () => {
-        return function(dispatch) {
+        return dispatch => {
             dispatch({
                 type: types.FETCH_TODOS_REQUEST
             });
-            return fetch(`${apiUrl}/todos`)
-                .then(response => response.json().then(body => ({ response, body })))
-                .then(({ response, body }) => {
-                    if (!response.ok) {
-                        dispatch({
-                            type: types.FETCH_TODOS_FAILURE,
-                            error: body.error
-                        });
-                    } else {
-                        console.log(response);
-                        dispatch({
-                            type: types.FETCH_TODOS_SUCCESS,
-                            todos: body.todos
-                        });
-                    }
+            axios
+                .get(`${apiUrl}/todos`)
+                .then(res => {
+                    dispatch({
+                        type: types.FETCH_TODOS_SUCCESS,
+                        todos: res.data,
+                    })
+                })
+                .catch(err => {
+                    dispatch({
+                        type: types.FETCH_TODOS_FAILURE,
+                        todos: err,
+                    });
                 });
-        }
+        };
     },
     submitTodo(text) {
         return {
