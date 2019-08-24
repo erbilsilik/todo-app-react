@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 const TodoList = ({ todos, deleteTodo }) => {
     const todoItems = todos.map(todo => (
         <li key={todo.id}>
-            <span className="todo-text">{todo.text}</span>
-            <button
-                type="button"
-                className="btn btn-danger todo-delete"
-                onClick={() => deleteTodo(todo.id)}
-            >
-                Delete
-            </button>
+            <span className="todo-text">{todo.title}</span>
+            {/*<button*/}
+            {/*    type="button"*/}
+            {/*    className="btn btn-danger todo-delete"*/}
+            {/*    onClick={() => deleteTodo(todo.id)}*/}
+            {/*>*/}
+            {/*    Delete*/}
+            {/*</button>*/}
         </li>
     ));
 
