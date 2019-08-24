@@ -6,6 +6,25 @@ export const initialState = {
 
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case types.FETCH_TODOS_REQUEST:
+            // This time, you may want to display loader in the UI.
+            return Object.assign({}, state, {
+                isFetching: true
+            });
+
+        case types.FETCH_TODOS_SUCCESS:
+            return {
+                ...state,
+                isFetching: false,
+                todos: action.todos
+            };
+
+        case types.FETCH_TODOS_FAILURE:
+            return {
+                ...state,
+                isFetching: false,
+                error: action.error
+            };
 
         case types.SUBMIT_TODO:
             return {

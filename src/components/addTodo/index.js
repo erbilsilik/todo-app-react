@@ -13,17 +13,30 @@ const AddTodo = ({ submitTodo }) => {
                     input.value = '';
                 }}
             >
+                <div className="form-group">
+                    <input type="text"
+                           placeholder="Title"
+                           className="form-control todo-input"
+                           name="title"
+                           ref={(element) => {
+                               input = element;
+                           }}
+                    />
+                </div>
 
-                <input
-                    className="todo-input"
-                    ref={(element) => {
-                        input = element;
-                    }}
-                />
+                <div className="form-group">
+                    <textarea
+                        cols="19"
+                        rows="8"
+                        placeholder="Text"
+                        className="form-control"
+                        name="text">
+                    </textarea>
+                </div>
 
-                <button type="submit" className="todo-submit">
-                    Add Todo
-                </button>
+                <div className="form-group">
+                    <button type="submit" className="btn btn-primary todo-submit">Add Todo</button>
+                </div>
             </form>
         </div>
     );
