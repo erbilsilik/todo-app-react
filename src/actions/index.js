@@ -1,7 +1,8 @@
 import types from "../constants/constants";
 import axios from 'axios';
 
-const apiUrl = process.env.API_URL;
+// const apiUrl = `${process.env.API_URL}/api`;
+const apiUrl = `https://todo-app-nestjs.herokuapp.com/api`;
 
 const actions = {
     fetchTodos: () => {

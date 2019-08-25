@@ -16,8 +16,8 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "react-scripts start --env.NODE_ENV=dev --env.API_URL=http://localhost:3001/api",
-    "build": "react-scripts build --env.API_URL=https://todo-app-nestjs.herokuapp.com/api --env.NODE_ENV=prod",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "selenium-setup": "selenium-standalone install",
