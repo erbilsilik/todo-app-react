@@ -1,7 +1,7 @@
 import types from "../constants/constants";
 import axios from 'axios';
 
-const apiUrl = 'http://localhost:3000/api';
+const apiUrl = process.env.API_URL;
 
 const actions = {
     fetchTodos: () => {

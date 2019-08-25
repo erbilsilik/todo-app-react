@@ -1,21 +1,23 @@
 {
   "name": "todolist-app-fe",
   "version": "0.1.0",
+  "engines": {
+    "node": "10.14.1"
+  },
   "private": true,
   "dependencies": {
+    "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
-    "dotenv": "^8.1.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.0",
     "react-scripts": "3.1.1",
     "redux": "^4.0.4",
-    "redux-devtools": "^3.5.0",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts start --env.NODE_ENV=dev --env.API_URL=http://localhost:3001/api",
+    "build": "react-scripts build --env.API_URL=https://todo-app-nestjs.herokuapp.com/api --env.NODE_ENV=prod",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "selenium-setup": "selenium-standalone install",
@@ -40,7 +42,6 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "chromedriver": "^76.0.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^6.2.2",
@@ -50,10 +51,6 @@
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
     "prop-types": "^15.7.2",
-    "react-test-renderer": "^16.9.0",
-    "redux-devtools-extension": "^2.13.8",
-    "selenium-standalone": "^6.16.0",
-    "wdio-chromedriver-service": "^5.0.2",
-    "webdriverio": "^5.12.4"
+    "react-test-renderer": "^16.9.0"
   }
 }
