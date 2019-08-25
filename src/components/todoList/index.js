@@ -18,7 +18,10 @@ const TodoList = ({todos, deleteTodo, changeStatus, statuses}) => {
                     <h2 className="todo-text">{todo.summary}</h2>
                 </div>
                 <div className="col-md-4">
-                    <select onChange={e => changeStatus(e.target.value, todo)} value={todo.status}>
+                    <select onChange={e => changeStatus(e.target.value, todo)} value={todo.status} style={{
+                        backgroundColor: todo.status == "Incomplete" ? "#0052CC" : "#00875A",
+                        color: '#fff',
+                    }}>
                         {
                             Object.keys(statuses).map((key, index) =>
                                 <option key={index} value={key}>
