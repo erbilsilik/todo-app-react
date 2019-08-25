@@ -20,8 +20,8 @@
     "eject": "react-scripts eject",
     "selenium-setup": "selenium-standalone install",
     "selenium-start": "selenium-standalone start",
-    "e2e-tests": "wdio wdio.conf.js",
-    "e2e-tests-watch": "wdio wdio.conf.js --watch"
+    "e2e-tests": "",
+    "e2e-tests-watch": ""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,10 +39,6 @@
     ]
   },
   "devDependencies": {
-    "@wdio/cli": "^5.12.4",
-    "@wdio/local-runner": "^5.12.4",
-    "@wdio/mocha-framework": "^5.12.1",
-    "@wdio/spec-reporter": "^5.12.1",
     "chai": "^4.2.0",
     "chromedriver": "^76.0.0",
     "enzyme": "^3.10.0",
