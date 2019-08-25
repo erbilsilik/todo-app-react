@@ -3,14 +3,6 @@ import axios from 'axios';
 
 const apiUrl = 'http://localhost:3000/api';
 
-let todoId = 0;
-
-const nextId = () => {
-    todoId += 1;
-
-    return todoId;
-};
-
 const actions = {
     fetchTodos: () => {
         return dispatch => {
@@ -33,15 +25,13 @@ const actions = {
                 });
         };
     },
-    submitTodo(title) {
+    submitTodo(todo) {
         return dispatch => {
             dispatch({
                 type: types.SUBMIT_TODO,
             });
             axios
-                .post(`${apiUrl}/todos`, {
-                    title,
-                })
+                .post(`${apiUrl}/todos`, todo)
                 .then(res => {
                     dispatch({
                         type: types.SUBMIT_TODO_SUCCESS,
@@ -56,10 +46,46 @@ const actions = {
                 });
         };
     },
+    editTodo(todo) {
+        return dispatch => {
+            dispatch({
+                type: types.EDIT_TODO,
+            });
+            axios
+                .put(`${apiUrl}/todos/${todo._id}`, todo)
+                .then(res => {
+                    dispatch({
+                        type: types.EDIT_TODO_SUCCESS,
+                        todo: res.data
+                    });
+                })
+                .catch(err => {
+                    dispatch({
+                        type: types.EDIT_TODO_FAILURE,
+                        todo: err
+                    });
+                });
+        };
+    },
     deleteTodo(id) {
-        return {
-            type: types.DELETE_TODO,
-            id,
+        return dispatch => {
+            dispatch({
+                type: types.DELETE_TODO,
+            });
+            axios
+                .delete(`${apiUrl}/todos/${id}`)
+                .then(res => {
+                    dispatch({
+                        type: types.DELETE_TODO_SUCCESS,
+                        todo: res.data
+                    });
+                })
+                .catch(err => {
+                    dispatch({
+                        type: types.DELETE_TODO_FAILURE,
+                        todo: err
+                    });
+                });
         };
     },
 };

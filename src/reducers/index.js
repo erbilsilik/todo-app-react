@@ -31,16 +31,18 @@ export const reducer = (state = initialState, action) => {
                 todos: [action.todo, ...state.todos]
             };
 
-        case types.DELETE_TODO:
+        case types.EDIT_TODO_SUCCESS:
+            const updatedTodos = state.todos.map(
+                item => action.todo._id === item._id ? action.todo : item);
             return {
                 ...state,
-                todos: [
-                    ...state.todos.filter(todo => (
-                        todo.id !== action.id
-                    )),
-                ],
+                todos: updatedTodos,
             };
 
+        case types.DELETE_TODO_SUCCESS:
+            return {
+                todos: state.todos.filter(todo => todo._id !== action.todo._id)
+            };
 
         default:
             return state;

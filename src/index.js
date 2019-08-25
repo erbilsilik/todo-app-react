@@ -5,7 +5,9 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 // import store from './store';
 import {Provider} from "react-redux";
+
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import todoListApp from "./reducers";
 import thunk from "redux-thunk";

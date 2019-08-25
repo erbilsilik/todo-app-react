@@ -2,24 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const AddTodo = ({ submitTodo }) => {
-    let input;
+    let summary;
+    let description;
 
     return (
         <div>
             <form
                 onSubmit={(event) => {
                     event.preventDefault();
-                    submitTodo(input.value);
-                    input.value = '';
+                    submitTodo(summary.value, description.value);
+                    summary.value = '';
+                    description.value = '';
                 }}
             >
                 <div className="form-group">
                     <input type="text"
-                           placeholder="Title"
+                           placeholder="Summary"
                            className="form-control todo-input"
-                           name="title"
+                           name="summary"
                            ref={(element) => {
-                               input = element;
+                               summary = element;
                            }}
                     />
                 </div>
@@ -28,9 +30,13 @@ const AddTodo = ({ submitTodo }) => {
                     <textarea
                         cols="19"
                         rows="8"
-                        placeholder="Text"
+                        placeholder="Description"
                         className="form-control"
-                        name="text">
+                        name="text"
+                        ref={(element) => {
+                            description = element;
+                        }}
+                    >
                     </textarea>
                 </div>
 
